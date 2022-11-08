@@ -6,12 +6,14 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "deploy": "push-dir --dir=.output/public --branch=gh-pages"
+    "deploy": "push-dir --dir=.output/public --branch=gh-pages",
+    "depl": "gh-pages -d dist"
   },
   "devDependencies": {
     "nuxt": "3.0.0-rc.13"
   },
   "dependencies": {
+    "gh-pages": "^4.0.0",
     "push-dir": "^0.4.1"
   }
 }
