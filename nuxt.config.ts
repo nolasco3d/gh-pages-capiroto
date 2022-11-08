@@ -2,5 +2,9 @@
 export default defineNuxtConfig({
   app: {
     baseURL: '/gh-pages-capiroto/'
+  },
+  modules:['@nuxtjs/tailwindcss'],
+  tailwindcss: {
+    viewer: false
   }
 })

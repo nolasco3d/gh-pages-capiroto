@@ -1,20 +1,25 @@
 <template>
-  <div v-if="true">
-    <p>word:{{$route.params.slug}}</p>
-
-    <!-- <pre v-if="data">{{data}}</pre> -->
-  </div>
-  <div v-else>
-    Loading...
+  <div class="container mx-auto min-h-screen bg-slate-50 px-10 text-center">
+    <h2 class="font-bold text-6xl my-8 capitalize text-gray-600">{{ $route.params.slug }}</h2>
+    <div v-if="!pending">
+      <pre>{{data}}</pre>
+    </div>
+    <div v-else>
+      Loading...
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
   const route = useRoute();
-  
-  // const {data, pending} = await useFetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${route.params.slug}`);
 
-  // console.log(data)
+  console.log(route.params.slug)
+  
+  const {data, pending} = await useAsyncData(
+    () => $fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${route.params.slug}`)
+  );
+
+  console.log(data, pending)
 </script>
 
 <style scoped>
